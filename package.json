@@ -1,0 +1,40 @@
+{
+  "name": "parthsuratwala-frontend",
+  "version": "1.0.0",
+  "description": "Portfolio website for Parth Suratwala",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "npx tailwindcss -i ./src/css/style.css -o ./public/css/style.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Krsatvik1/parthsuratwala-frontend.git"
+  },
+  "keywords": [
+    "Design",
+    "Portfolio",
+    "Website"
+  ],
+  "author": "PIRATA INTERACTIVES",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Krsatvik1/parthsuratwala-frontend/issues"
+  },
+  "homepage": "https://github.com/Krsatvik1/parthsuratwala-frontend#readme",
+  "dependencies": {
+    "aws-sdk": "^2.1472.0",
+    "body-parser": "^1.20.2",
+    "caniuse-lite": "^1.0.30001549",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "express-validator": "^7.0.1",
+    "nodemailer": "^6.9.5"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}
