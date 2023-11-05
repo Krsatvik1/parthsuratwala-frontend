@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Node.js, Express, and EJS Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title><%= seo.title %></title>
+    <meta name="description" content="<%= seo.description %>" />
+    <meta name="keywords" content="<%= seo.comma_seperated_keyword %>" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="<%= seo.open_graph_title %>" />
+    <meta property="og:description" content="<%= seo.open_graph_description %>" />
+    <% if (seo.open_graph_image.data) {%>
+    <meta property="og:image" content="<%= data.strapiURL %><%= seo.open_graph_image.data.attributes.url %>" />
+    <% } %>
+    <link rel="icon" href="/public/favicon.ico" type="image/x-icon">
+    <meta property="og:url" content="<%= data.pageURL %>" />
+    <meta property="og:type" content="<%= seo.open_graph_type %>" />
     <!-- Your CSS files here -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

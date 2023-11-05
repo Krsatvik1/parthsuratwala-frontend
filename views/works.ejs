@@ -1,11 +1,36 @@
-<%- include('partials/header.ejs') %>
+<%- include('partials/header.ejs', {seo:data.seo,data:data}) %>
 <%- include('partials/nav.ejs') %>
 
-<header
+<header id="header" id="header"
 class="lg:text-clamp-lg md:text-clamp-md xl:text-clamp-xl 2xl:text-clamp-2xl sm:text-clamp-sm text-clamp-xs uppercase leading-[0.5]">
 <div class="flex p-[0.42rem] md:p-[2rem] justify-between border-b-[0.0625rem] border-white">
     <h1>PORTFOLIO</h1>
 </div>
 </header>
+<div
+class="lg:text-clamp-lg md:text-clamp-md xl:text-clamp-xl 2xl:text-clamp-2xl sm:text-clamp-sm text-clamp-xs uppercase leading-[0.5] outline-[0.0625rem]  outline-white outline grid md:grid-cols-2 grid-cols-1">
+<% data.works.forEach((work,key)=>{ %>
+    <a href="works/<%= work.attributes.slug %>" class=" flex flex-col outline-[0.0625rem]  outline-white outline mb-[1.25rem] md:mb-0 border-white
+        relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:w-full after:h-full after:z-10 after:mix-blend-difference overflow-hidden after:transition-all-09uy after:duration-300 after:ease-in after:border-0 after:border-white hover:after:border-[25rem]
+        ">
+        <div class="md:mx-[1.63rem] md:mt-[1.37rem] z-20 relative flex-grow">
+            <img src="<%= data.strapiURL + work.attributes.display_image.data.attributes.url %>" alt="<%= work.attributes.display_image.data.attributes.alternativeText %>" class="w-full h-full object-cover">
+        </div>
+        <div class="mx-[0.6rem] md:mx-[1.63rem] flex justify-between pb-[1.5rem] pt-2 md:pt-4">
+            <div class="  flex-grow">
+                <h2 class="md:text-[3.625rem] text-[1.8rem] font-normal uppercase leading-[0.7] mb-[1rem]"><%= work.attributes.project_name%></h2>
+                <p class="text-[0.687rem] md:text-[1rem] capitalize font-light leading-[0.7] "><% work.attributes.software_used.forEach((skill,key1)=>{ %><% if (key1>0) {%> // <% } %><%= skill.title %><% }) %></p>
+            </div>
+            <div class="text-[1.5rem] md:text-[2.5rem] leading-[0.9] italic font-thin">
+                <div><%= work.attributes.month_creation%></div>
+                <div><%= work.attributes.year_creation%></div>
+            </div>
+        </div>
+        <div class="border-t-[1px] flex gap-x-1 text-[0.687rem] md:text-base font-light capitalize border-white justify-center py-[0.5rem] md:py-[0.9rem]">
+            <% work.attributes.skill_used.forEach((skill,key1)=>{ %><% if (key1>0) {%><div> / </div><% } %><div><%= skill.title %></div><% }) %>
+        </div>
+    </a>
+<% }) %>
+</div>
 
-<%- include('partials/footer.ejs') %>
+<%- include('partials/footer.ejs', {contact:data.contact}) %>

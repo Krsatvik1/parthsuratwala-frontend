@@ -1,29 +1,46 @@
-<%- include('partials/header.ejs') %>
+<%- include('partials/header.ejs', {seo:data.seo,data:data}) %>
 
     <%- include('partials/nav.ejs') %>
 
-        <header
+        <header id="header"
             class="lg:text-clamp-lg md:text-clamp-md xl:text-clamp-xl 2xl:text-clamp-2xl sm:text-clamp-sm text-clamp-xs uppercase leading-[0.5]">
             <div class="flex p-[0.42rem] md:p-[2rem] justify-between border-b-[0.0625rem] border-white">
-                <h1>PARTH</h1>
-                <h1>SURATWALA</h1>
+                <h1>
+                    <%= data.homeData.header_line_1_A %>
+                </h1>
+                <h1>
+                    <%= data.homeData.header_line_1_B %>
+                </h1>
             </div>
             <div class="flex p-[0.42rem] md:p-[2rem]  justify-between border-b-[0.0625rem] border-white">
-                <h1>cG</h1>
-                <h1>gENERALIST</h1>
+                <h1>
+                    <%= data.homeData.header_line_2_A %>
+                </h1>
+                <h1>
+                    <%= data.homeData.header_line_2_B %>
+                </h1>
             </div>
             <div class="flex p-[0.42rem] md:p-[2rem]  pb-0 justify-between ">
-                <h1>I</h1>
-                <h1>REALISE</h1>
-                <h1>THE</h1>
+                <h1>
+                    <%= data.homeData.header_line_3_A %>
+                </h1>
+                <h1>
+                    <%= data.homeData.header_line_3_B %>
+                </h1>
+                <h1>
+                    <%= data.homeData.header_line_3_C %>
+                </h1>
             </div>
             <div
                 class="flex p-[0.42rem] md:p-[2rem] pt-0 border-b-[0.0625rem] border-white justify-between mt-[0.7rem] md:mt-[0.4rem]">
-                <h1 class="ml-[5%]">UNREAL</h1>
+                <h1 class="ml-[5%]">
+                    <%= data.homeData.header_line_4_A %>
+                </h1>
             </div>
         </header>
-        <div
-            class="items-center justify-end py-[1.94rem] md:pb-[4.25rem] md:pt-[3.69rem] px-[0.69rem] md:px-[1.69rem] border-b-[0.0625rem] border-white">
+        <div aria-label="<%= data.strapiURL+data.homeData.about_image.data.attributes.alternativeText %>"
+            class="items-center justify-end py-[1.94rem] bg-no-repeat bg-contain bg-right-bottom md:pb-[4.25rem] md:pt-[3.69rem] px-[0.69rem] md:px-[1.69rem] border-b-[0.0625rem] border-white"
+            style="background-image: url('<%= data.strapiURL+data.homeData.about_image.data.attributes.url %>');">
             <div
                 class="text-white hidden md:flex no-underline hover:text-white italic text-2xl font-thin pb-[1.94rem] md:pb-[3.69rem] pr-[2.31rem]">
                 <div class="ml-auto mr-2">SCROLL</div>
@@ -32,9 +49,7 @@
             <div class="grid grid-cols-5 text-[0.7rem] md:text-[1.25rem] leading-[1.2] font-normal">
                 <div class="col-span-3 md:col-span-3">
                     <p class="md:max-w-[29rem] pb-[31.25rem] ">
-                        Some ideas need more than two dimensions, I add the third. Building on foundations of good
-                        visual communication, I construct the scenes and renders that satisfy your specific
-                        requirements.
+                        <%= data.homeData.about_para %>
                     </p>
                     <h2
                         class="lg:text-clamp-lg md:text-clamp-md xl:text-clamp-xl 2xl:text-clamp-2xl sm:text-clamp-sm text-clamp-xs uppercase leading-[0.7] ">
@@ -57,158 +72,171 @@
         </div>
         <div
             class="border-b-[0.0625rem] max-h-0 origin-top overflow-hidden transition-all duration-1000 ease-in border-white px-[0.69rem] md:px-[1.69rem]">
-            <div
-                class="flex justify-between md:my-[2.5rem] my-[0.87rem] items-center gap-x-[1.65rem] md:gap-x-[3.44rem]">
-                <div class="h-fit">
-                    <img class="h-[3.39488rem] md:h-[7.6875rem]" src="/images/adobe-photoshop.png" alt="">
-                </div>
-                <div class="text-right">
-                    <h3 class="md:text-[5rem] texy-[1.247rem] font-normal leading-[0.8]">PHOTOSHOP</h3>
-                    <p
-                        class="md:text-[1.5rem] mt-4 md:mt-[1.87rem] text-[0.875rem] italic font-thin uppercase leading-[0.8]">
-                        5 years</p>
+            <% data.educations.forEach((edu,key)=>{ %>
+                %>
+                <div
+                    class="justify-between md:my-[2.5rem] my-[0.87rem] items-center gap-x-[1.65rem] md:gap-x-[3.44rem]">
+                    <div class="text-left">
+                        <h3 class="md:text-[5rem] texy-[1.247rem] font-normal leading-[0.8]">
+                            <%= edu.attributes.details.name %>
+                        </h3>
+                        <p
+                            class="md:text-[1.5rem] mt-4 md:mt-[1.87rem] text-[0.875rem] italic font-thin uppercase leading-[0.8]">
+                            <%= edu.attributes.details.years %>
+                        </p>
+                        <p
+                            class="md:text-[1.5rem] mt-4 md:mt-[1.87rem] text-[0.875rem] italic font-thin uppercase leading-[0.8]">
+                            <%= edu.attributes.details.qualification %>
+                        </p>
 
+                    </div>
                 </div>
-            </div>
+                <% }) %>
+        </div>
+        <div
+            class="border-b-[0.0625rem] about hover:cursor-pointer after:mix-blend-difference group after:absolute after:content-[''] after:top-0 after:bottom-0 after:w-full after:h-[200%] relative overflow-hidden hover:after:translate-y-0 after:bg-[linear-gradient(0deg,#000_50%,#fff_50%)] after:transition-all after:duration-300 after:ease-in after:translate-y-1/2 from-white to-black transition-all duration-300 ease-in border-white md:py-[2.5rem] py-[0.87rem] flex arrowmouse">
             <div
-                class="flex justify-between md:my-[2.5rem] my-[0.87rem] items-center gap-x-[1.65rem] md:gap-x-[3.44rem]">
-                <div class="h-fit">
-                    <img class="h-[3.39488rem] md:h-[7.6875rem]" src="/images/adobe-photoshop.png" alt="">
-                </div>
-                <div class="text-right">
-                    <h3 class="md:text-[5rem] texy-[1.247rem] font-normal leading-[0.8]">PHOTOSHOP</h3>
-                    <p
-                        class="md:text-[1.5rem] mt-4 md:mt-[1.87rem] text-[0.875rem] italic font-thin uppercase leading-[0.8]">
-                        5 years</p>
-
-                </div>
+                class="leading-[0.7] pl-[0.69rem] md:pl-[1.69rem] text-[0.935rem] md:text-[3.75rem] font-thin uppercase">
+                HARD SKILLS</div>
+            <div class="ml-auto relative mr-[2.79rem]">
+                <svg viewBox="0 0 24 39" class="fill-white  transition-all h-full duration-300 ease-in"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M13.5 2C13.5 1.17157 12.8284 0.5 12 0.5C11.1716 0.5 10.5 1.17157 10.5 2L13.5 2ZM10.9393 38.0611C11.5251 38.6469 12.4749 38.6469 13.0607 38.0611L22.6066 28.5152C23.1924 27.9294 23.1924 26.9797 22.6066 26.3939C22.0208 25.8081 21.0711 25.8081 20.4853 26.3939L12 34.8792L3.51472 26.3939C2.92893 25.8081 1.97918 25.8081 1.3934 26.3939C0.80761 26.9797 0.80761 27.9294 1.3934 28.5152L10.9393 38.0611ZM10.5 2L10.5 37.0005L13.5 37.0005L13.5 2L10.5 2Z" />
+                </svg>
             </div>
+        </div>
+        <div
+            class="border-b-[0.0625rem] max-h-0 origin-top overflow-hidden transition-all duration-1000 ease-in border-white px-[0.69rem] md:px-[1.69rem]">
+            <% data.hard_skills.forEach((skill,key)=>{ %>
+                %>
+                <div
+                    class="justify-between md:my-[2.5rem] my-[0.87rem] items-center gap-x-[1.65rem] md:gap-x-[3.44rem]">
+                    <div class="text-left">
+                        <h3 class="md:text-[5rem] texy-[1.247rem] font-normal leading-[0.8]">
+                            <%= skill.attributes.skill_name.name %>
+                        </h3>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+        <div
+            class="border-b-[0.0625rem] about hover:cursor-pointer after:mix-blend-difference group after:absolute after:content-[''] after:top-0 after:bottom-0 after:w-full after:h-[200%] relative overflow-hidden hover:after:translate-y-0 after:bg-[linear-gradient(0deg,#000_50%,#fff_50%)] after:transition-all after:duration-300 after:ease-in after:translate-y-1/2 from-white to-black transition-all duration-300 ease-in border-white md:py-[2.5rem] py-[0.87rem] flex arrowmouse">
             <div
-                class="flex justify-between md:my-[2.5rem] my-[0.87rem] items-center gap-x-[1.65rem] md:gap-x-[3.44rem]">
-                <div class="h-fit">
-                    <img class="h-[3.39488rem] md:h-[7.6875rem]" src="/images/adobe-photoshop.png" alt="">
-                </div>
-                <div class="text-right">
-                    <h3 class="md:text-[5rem] texy-[1.247rem] font-normal leading-[0.8]">PHOTOSHOP</h3>
-                    <p
-                        class="md:text-[1.5rem] mt-4 md:mt-[1.87rem] text-[0.875rem] italic font-thin uppercase leading-[0.8]">
-                        5 years</p>
-
-                </div>
+                class="leading-[0.7] pl-[0.69rem] md:pl-[1.69rem] text-[0.935rem] md:text-[3.75rem] font-thin uppercase">
+                SOFT SKILLS</div>
+            <div class="ml-auto relative mr-[2.79rem]">
+                <svg viewBox="0 0 24 39" class="fill-white  transition-all h-full duration-300 ease-in"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M13.5 2C13.5 1.17157 12.8284 0.5 12 0.5C11.1716 0.5 10.5 1.17157 10.5 2L13.5 2ZM10.9393 38.0611C11.5251 38.6469 12.4749 38.6469 13.0607 38.0611L22.6066 28.5152C23.1924 27.9294 23.1924 26.9797 22.6066 26.3939C22.0208 25.8081 21.0711 25.8081 20.4853 26.3939L12 34.8792L3.51472 26.3939C2.92893 25.8081 1.97918 25.8081 1.3934 26.3939C0.80761 26.9797 0.80761 27.9294 1.3934 28.5152L10.9393 38.0611ZM10.5 2L10.5 37.0005L13.5 37.0005L13.5 2L10.5 2Z" />
+                </svg>
             </div>
+        </div>
+        <div
+            class="border-b-[0.0625rem] max-h-0 origin-top overflow-hidden transition-all duration-1000 ease-in border-white px-[0.69rem] md:px-[1.69rem]">
+            <% data.soft_skills.forEach((skill,key)=>{ %>
+                %>
+                <div
+                    class="justify-between md:my-[2.5rem] my-[0.87rem] items-center gap-x-[1.65rem] md:gap-x-[3.44rem]">
+                    <div class="text-left">
+                        <h3 class="md:text-[5rem] texy-[1.247rem] font-normal leading-[0.8]">
+                            <%= skill.attributes.skill_name.name %>
+                        </h3>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+        <div
+            class="border-b-[0.0625rem] about hover:cursor-pointer after:mix-blend-difference group after:absolute after:content-[''] after:top-0 after:bottom-0 after:w-full after:h-[200%] relative overflow-hidden hover:after:translate-y-0 after:bg-[linear-gradient(0deg,#000_50%,#fff_50%)] after:transition-all after:duration-300 after:ease-in after:translate-y-1/2 from-white to-black transition-all duration-300 ease-in border-white md:py-[2.5rem] py-[0.87rem] flex arrowmouse">
             <div
-                class="flex justify-between md:my-[2.5rem] my-[0.87rem] items-center gap-x-[1.65rem] md:gap-x-[3.44rem]">
-                <div class="h-fit">
-                    <img class="h-[3.39488rem] md:h-[7.6875rem]" src="/images/adobe-photoshop.png" alt="">
-                </div>
-                <div class="text-right">
-                    <h3 class="md:text-[5rem] texy-[1.247rem] font-normal leading-[0.8]">PHOTOSHOP</h3>
-                    <p
-                        class="md:text-[1.5rem] mt-4 md:mt-[1.87rem] text-[0.875rem] italic font-thin uppercase leading-[0.8]">
-                        5 years</p>
-
-                </div>
+                class="leading-[0.7] pl-[0.69rem] md:pl-[1.69rem] text-[0.935rem] md:text-[3.75rem] font-thin uppercase">
+                SOFTWARES</div>
+            <div class="ml-auto relative mr-[2.79rem]">
+                <svg viewBox="0 0 24 39" class="fill-white  transition-all h-full duration-300 ease-in"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M13.5 2C13.5 1.17157 12.8284 0.5 12 0.5C11.1716 0.5 10.5 1.17157 10.5 2L13.5 2ZM10.9393 38.0611C11.5251 38.6469 12.4749 38.6469 13.0607 38.0611L22.6066 28.5152C23.1924 27.9294 23.1924 26.9797 22.6066 26.3939C22.0208 25.8081 21.0711 25.8081 20.4853 26.3939L12 34.8792L3.51472 26.3939C2.92893 25.8081 1.97918 25.8081 1.3934 26.3939C0.80761 26.9797 0.80761 27.9294 1.3934 28.5152L10.9393 38.0611ZM10.5 2L10.5 37.0005L13.5 37.0005L13.5 2L10.5 2Z" />
+                </svg>
             </div>
-            <div
-                class="flex justify-between md:my-[2.5rem] my-[0.87rem] items-center gap-x-[1.65rem] md:gap-x-[3.44rem]">
-                <div class="h-fit">
-                    <img class="h-[3.39488rem] md:h-[7.6875rem]" src="/images/adobe-photoshop.png" alt="">
+        </div>
+        <div
+            class="border-b-[0.0625rem] max-h-0 origin-top overflow-hidden transition-all duration-1000 ease-in border-white px-[0.69rem] md:px-[1.69rem]">
+            <% data.software.forEach((soft,key)=>{ %>
+                <div class="flex justify-between my-9">
+                    <div class="h-fit">
+                        <img class="h-[3.39488rem] md:h-[7.6875rem]"
+                            src="<%= data.strapiURL + data.software[key].attributes.software_details.icon.data.attributes.url %>"
+                            alt="<%= data.software[key].attributes.software_details.icon.data.attributes.alternativeText %>">
+                    </div>
+                    <div
+                        class="text-right justify-between md:my-[2.5rem] my-[0.87rem] items-center gap-x-[1.65rem] md:gap-x-[3.44rem]">
+                        <div class="text-right">
+                            <h3 class="md:text-[5rem] texy-[1.247rem] font-normal leading-[0.8]">
+                                <%= soft.attributes.software_details.name %>
+                            </h3>
+                            <p
+                                class="md:text-[1.5rem] ml-auto mt-4 md:mt-[1.87rem] text-[0.875rem] italic font-thin uppercase leading-[0.8]">
+                                <%= soft.attributes.software_details.years %>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-right">
-                    <h3 class="md:text-[5rem] texy-[1.247rem] font-normal leading-[0.8]">PHOTOSHOP</h3>
-                    <p
-                        class="md:text-[1.5rem] mt-4 md:mt-[1.87rem] text-[0.875rem] italic font-thin uppercase leading-[0.8]">
-                        5 years</p>
 
-                </div>
-            </div>
+                <% }) %>
         </div>
         <div class=" border-white border-b-[0.0625rem] py-[1.5rem] px-[0.69rem] md:px-[1.69rem] md:py-[3.44rem]">
             <h2 class="text-base md:text-2xl font-thin italic capitalize leading-[0.7]">Work Experience</h2>
+            <% data.workexp.forEach((exp,key)=>{ %>
             <div class="mt-[2.38rem] md:mt-[10.5rem] md:grid md:grid-cols-6">
-                <div class="md:col-span-5">
+                <div class="md:col-span-4">
                     <h3 class="uppercase leading-[0.7] md:mb-[4.37rem] mb-[1.8rem] text-[1.89rem] md:text-[6.5625rem]">
-                        YUJ Designs</h3>
+                        <%= exp.attributes.employeer_name %>    
+                    </h3>
                     <div class="text-xs md:text-[1.5rem] font-thin mb-8 italic grid grid-cols-2">
-                        <p>VX Designer</p>
-                        <p>July 2022 - Present</p>
+                        <p><%= exp.attributes.designation %></p>
+                        <p><%= exp.attributes.joining_month_year %> - <%= exp.attributes.leaving_month_year %></p>
                     </div>
                 </div>
-                <p class="text-[0.875rem] font-thin md:font-light md:text-2xl">
-                    Lorem ipsum dolor sit amet consectetur. Orci molestie pretium et amet. Quam amet tristique eu
-                    imperdiet.
+                <p class="text-[0.875rem] font-thin md:font-light md:text-2xl md:col-span-2">
+                    <%= exp.attributes.description %>
                 </p>
             </div>
+            <% }) %>
         </div>
         <div class="px-[0.69rem] md:px-[1.69rem] py-[1.5rem] border-white border-b-[0.0625rem] md:py-[3.44rem]">
             <h2 class="text-base md:text-2xl text-right font-thin italic capitalize leading-[0.7]">My Work</h2>
             <div class="md:mt-[9.81rem] mt-[1.94rem] md:columns-2 md:gap-[2.25rem] columns-1">
-                <div
-                    class="grid text-white border-[1.054px] border-white px-[0.83rem] grid-cols-8 md:grid-cols-10 py-[0.7rem] relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:w-full after:h-full after:z-10 after:mix-blend-difference overflow-hidden after:transition-all-09uy after:duration-300 after:ease-in after:border-0 after:border-white hover:after:border-[10rem] ">
+                <% data.works.forEach((work,key)=>{  if(key%2==0){%>
+                <a href="/works/<%= work.attributes.slug %>"
+                    class="grid text-white border-[1.054px] border-white px-[0.83rem] grid-cols-8 md:grid-cols-10 py-[0.7rem] 
+                    relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:w-full after:h-full after:z-10 after:mix-blend-difference overflow-hidden after:transition-all-09uy after:duration-300 after:ease-in after:border-0 after:border-white hover:after:border-[10rem]
+                    
+                    md:my-[2.25rem] my-[1.25rem]">
                     <div class="col-span-7 md:col-span-9 md:h-[46.1875rem]  h-[20rem] 
                     overflow-hidden z-20 relative">
-                        <img class=" object-cover object-center min-h-full min-w-full" src="/images/image-2.png" alt="">
+                        <img class=" object-cover object-center min-h-full min-w-full" src="<%= data.strapiURL + work.attributes.display_image.data.attributes.url %>" alt="<%= work.attributes.display_image.data.attributes.alternativeText %>">
                     </div>
                     <div class="justify-self-end col-span-1 space-y-2">
+                        <% work.attributes.skill_used.forEach((skill)=>{ %>
                         <div class="px-[0.63rem] py-[0.93rem] md:text-base text-[0.53044rem] border-[0.53px] rounded-[1.92288rem] border-white leading-[1]"
                             style="writing-mode: vertical-lr;">
-                            3D Scene Creation
+                            <%= skill.title %>
                         </div>
+                        <% }) %>
                     </div>
                     <div class="col-span-7 md:col-span-9 leading-none pt-2">
-                        <h4 class="md:text-[3.625rem] text-[1.92rem] uppercase">Ozymandias1</h4>
+                        <h4 class="md:text-[3.625rem] text-[1.92rem] uppercase"><%= work.attributes.project_name%></h4>
                     </div>
                     <div
                         class="justify-self-end pt-2 pl-2 self-end md:text-[2.5rem] text-[1.326rem] italic font-thin leading-none">
-                        <p>04</p>
-                        <p>23</p>
+                        <p><%= work.attributes.month_creation%></p>
+                        <p><%= work.attributes.year_creation%></p>
                     </div>
-                </div>
-                <div
-                    class="grid mt-[2.25rem] text-white border-[1.054px] border-white px-[0.83rem] grid-cols-8 md:grid-cols-10 py-[0.7rem] relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:w-full after:h-full after:z-10 after:mix-blend-difference overflow-hidden after:transition-all-09uy after:duration-300 after:ease-in after:border-0 after:border-white hover:after:border-[10rem] ">
-                    <div class="col-span-7 md:col-span-9 md:h-[46.1875rem]  h-[20rem] 
-                    overflow-hidden z-20 relative">
-                        <img class=" object-cover object-center min-h-full min-w-full" src="/images/image-2.png" alt="">
-                    </div>
-                    <div class="justify-self-end col-span-1 space-y-2">
-                        <div class="px-[0.63rem] py-[0.93rem] md:text-base text-[0.53044rem] border-[0.53px] rounded-[1.92288rem] border-white leading-[1]"
-                            style="writing-mode: vertical-lr;">
-                            3D Scene Creation
-                        </div>
-                    </div>
-                    <div class="col-span-7 md:col-span-9 leading-none pt-2">
-                        <h4 class="md:text-[3.625rem] text-[1.92rem] uppercase">Ozymandias2</h4>
-                    </div>
-                    <div
-                        class="justify-self-end pt-2 pl-2 self-end md:text-[2.5rem] text-[1.326rem] italic font-thin leading-none">
-                        <p>04</p>
-                        <p>23</p>
-                    </div>
-                </div>
-
-                <div
-                    class="grid mt-[2.25rem] text-white border-[1.054px] border-white px-[0.83rem] grid-cols-8 md:grid-cols-10 py-[0.7rem] relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:w-full after:h-full after:z-10 after:mix-blend-difference overflow-hidden after:transition-all-09uy after:duration-300 after:ease-in after:border-0 after:border-white hover:after:border-[10rem] align-bottom">
-                    <div class="col-span-7 md:col-span-9 md:h-[46.1875rem]  h-[20rem] 
-                    overflow-hidden z-20 relative">
-                        <img class=" object-cover object-center min-h-full min-w-full" src="/images/image-2.png" alt="">
-                    </div>
-                    <div class="justify-self-end col-span-1 space-y-2">
-                        <div class="px-[0.63rem] py-[0.93rem] md:text-base text-[0.53044rem] border-[0.53px] rounded-[1.92288rem] border-white leading-[1]"
-                            style="writing-mode: vertical-lr;">
-                            3D Scene Creation
-                        </div>
-                    </div>
-                    <div class="col-span-7 md:col-span-9 leading-none pt-2">
-                        <h4 class="md:text-[3.625rem] text-[1.92rem] uppercase">Ozymandias3</h4>
-                    </div>
-                    <div
-                        class="justify-self-end pt-2 pl-2 self-end md:text-[2.5rem] text-[1.326rem] italic font-thin leading-none">
-                        <p>04</p>
-                        <p>23</p>
-                    </div>
-                </div>
+                </a>
+                <% }}) %>
                 <div class="md:flex h-32 hidden items-end mt-[2.25rem]">
-                    <a class="flex">
+                    <a class="flex" href="/works">
                         <h4 class="uppercase border-b-2 border-white text-[4rem] leading-none">VIEW MORE</h4>
                         <div class="ml-6 mt-2"><svg width="46" height="47" viewBox="0 0 46 47" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -220,72 +248,33 @@
                         </div>
                     </a>
                 </div>
-                <div class="h-32 hidden md:block">
+                <div class="h-52 hidden md:block"></div>
+                <% data.works.forEach((work,key)=>{  if(key%2!=0){%>
+                    <a href="/works/<%= work.attributes.slug %>"
+                        class="grid text-white border-[1.054px] border-white px-[0.83rem] grid-cols-8 md:grid-cols-10 py-[0.7rem] relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:w-full after:h-full after:z-10 after:mix-blend-difference overflow-hidden after:transition-all-09uy after:duration-300 after:ease-in after:border-0 after:border-white hover:after:border-[10rem] md:my-[2.25rem] my-[1.25rem]">
+                        <div class="col-span-7 md:col-span-9 md:h-[46.1875rem]  h-[20rem] 
+                        overflow-hidden z-20 relative">
+                            <img class=" object-cover object-center min-h-full min-w-full" src="<%= data.strapiURL + work.attributes.display_image.data.attributes.url %>" alt="<%= work.attributes.display_image.data.attributes.alternativeText %>">
+                        </div>
+                        <div class="justify-self-end col-span-1 space-y-2">
+                            <% work.attributes.skill_used.forEach((skill)=>{ %>
+                            <div class="px-[0.63rem] py-[0.93rem] md:text-base text-[0.53044rem] border-[0.53px] rounded-[1.92288rem] border-white leading-[1]"
+                                style="writing-mode: vertical-lr;">
+                                <%= skill.title %>
+                            </div>
+                            <% }) %>
+                        </div>
+                        <div class="col-span-7 md:col-span-9 leading-none pt-2">
+                            <h4 class="md:text-[3.625rem] text-[1.92rem] uppercase"><%= work.attributes.project_name%></h4>
+                        </div>
+                        <div
+                            class="justify-self-end pt-2 pl-2 self-end md:text-[2.5rem] text-[1.326rem] italic font-thin leading-none">
+                            <p><%= work.attributes.month_creation%></p>
+                            <p><%= work.attributes.year_creation%></p>
+                        </div>
+                    </a>
+                    <% }}) %>
 
-                </div>
-                <div
-                    class="grid mt-[2.25rem] text-white border-[1.054px] border-white px-[0.83rem] grid-cols-8 md:grid-cols-10 py-[0.7rem] relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:w-full after:h-full after:z-10 after:mix-blend-difference overflow-hidden after:transition-all-09uy after:duration-300 after:ease-in after:border-0 after:border-white hover:after:border-[10rem] ">
-                    <div class="col-span-7 md:col-span-9 md:h-[46.1875rem]  h-[20rem] 
-                    overflow-hidden z-20 relative">
-                        <img class=" object-cover object-center min-h-full min-w-full" src="/images/image-2.png" alt="">
-                    </div>
-                    <div class="justify-self-end col-span-1 space-y-2">
-                        <div class="px-[0.63rem] py-[0.93rem] md:text-base text-[0.53044rem] border-[0.53px] rounded-[1.92288rem] border-white leading-[1]"
-                            style="writing-mode: vertical-lr;">
-                            3D Scene Creation
-                        </div>
-                    </div>
-                    <div class="col-span-7 md:col-span-9 leading-none pt-2">
-                        <h4 class="md:text-[3.625rem] text-[1.92rem] uppercase">Ozymandias4</h4>
-                    </div>
-                    <div
-                        class="justify-self-end pt-2 pl-2 self-end md:text-[2.5rem] text-[1.326rem] italic font-thin leading-none">
-                        <p>04</p>
-                        <p>23</p>
-                    </div>
-                </div>
-                <div
-                    class="grid mt-[2.25rem] text-white border-[1.054px] border-white px-[0.83rem] grid-cols-8 md:grid-cols-10 py-[0.7rem] relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:w-full after:h-full after:z-10 after:mix-blend-difference overflow-hidden after:transition-all-09uy after:duration-300 after:ease-in after:border-0 after:border-white hover:after:border-[10rem] ">
-                    <div class="col-span-7 md:col-span-9 md:h-[46.1875rem]  h-[20rem] 
-                    overflow-hidden z-20 relative">
-                        <img class=" object-cover object-center min-h-full min-w-full" src="/images/image-2.png" alt="">
-                    </div>
-                    <div class="justify-self-end col-span-1 space-y-2">
-                        <div class="px-[0.63rem] py-[0.93rem] md:text-base text-[0.53044rem] border-[0.53px] rounded-[1.92288rem] border-white leading-[1]"
-                            style="writing-mode: vertical-lr;">
-                            3D Scene Creation
-                        </div>
-                    </div>
-                    <div class="col-span-7 md:col-span-9 leading-none pt-2">
-                        <h4 class="md:text-[3.625rem] text-[1.92rem] uppercase">Ozymandias4</h4>
-                    </div>
-                    <div
-                        class="justify-self-end pt-2 pl-2 self-end md:text-[2.5rem] text-[1.326rem] italic font-thin leading-none">
-                        <p>04</p>
-                        <p>23</p>
-                    </div>
-                </div>
-                <div
-                    class="grid mt-[2.25rem] text-white border-[1.054px] border-white px-[0.83rem] grid-cols-8 md:grid-cols-10 py-[0.7rem] relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:w-full after:h-full after:z-10 after:mix-blend-difference overflow-hidden after:transition-all-09uy after:duration-300 after:ease-in after:border-0 after:border-white hover:after:border-[10rem] ">
-                    <div class="col-span-7 md:col-span-9 md:h-[46.1875rem]  h-[20rem] 
-                    overflow-hidden z-20 relative">
-                        <img class=" object-cover object-center min-h-full min-w-full" src="/images/image-2.png" alt="">
-                    </div>
-                    <div class="justify-self-end col-span-1 space-y-2">
-                        <div class="px-[0.63rem] py-[0.93rem] md:text-base text-[0.53044rem] border-[0.53px] rounded-[1.92288rem] border-white leading-[1]"
-                            style="writing-mode: vertical-lr;">
-                            3D Scene Creation
-                        </div>
-                    </div>
-                    <div class="col-span-7 md:col-span-9 leading-none pt-2">
-                        <h4 class="md:text-[3.625rem] text-[1.92rem] uppercase">Ozymandias4</h4>
-                    </div>
-                    <div
-                        class="justify-self-end pt-2 pl-2 self-end md:text-[2.5rem] text-[1.326rem] italic font-thin leading-none">
-                        <p>04</p>
-                        <p>23</p>
-                    </div>
-                </div>
                 <div class="flex h-[4.5rem] md:hidden items-end mt-[2.25rem]">
                     <a class="flex">
                         <h4 class="uppercase border-b-2 border-white text-[2.3rem] md:text-[4rem] leading-none">VIEW
@@ -305,44 +294,7 @@
                 </div>
             </div>
         </div>
-        <div class="px-[0.69rem] md:px-[1.69rem] py-[1.5rem] border-white border-b-[0.0625rem] md:py-[3.44rem]">
-            <h2
-                class="lg:text-clamp-b-lg md:text-clamp-b-md xl:text-clamp-b-xl 2xl:text-clamp-b-2xl sm:text-clamp-b-sm text-clamp-b-xs uppercase leading-[0.7] ">
-                Lets's get talking
-            </h2>
-            <div class="flex items-end mt-[2.25rem] md:mt-[6.75rem]">
-                <div class="uppercase flex-grow text-[1rem] md:text-[4rem] leading-[0.7] ">
-                    <p class="md:mb-12 mb-3">EMAIL</p>
-                    <a class="border-b-2 border-white" href="mailto:me@parthsuratwala.com">me@parthsuratwala.com</a>
-                </div>
-                <div class="ml-auto">
-                    <svg class="md:w-[45px] w-[11px] aspect-square" viewBox="0 0 45 45" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0.0827637 8.74224e-08H44.0828V2H0.0827637V8.74224e-08Z" fill="white" />
-                        <path d="M0 43.1956L42.1955 1.0001L43.6097 2.41431L1.41421 44.6098L0 43.1956Z" fill="white" />
-                        <path d="M44.0828 8.74224e-08L44.0828 45H42.0828L42.0828 0L44.0828 8.74224e-08Z" fill="white" />
-                    </svg>
-                </div>
-            </div>
-            <div class="flex items-end mt-[2.25rem] md:mt-[6.75rem] mb-[1.25rem] md:mb-[4.75rem]">
-                <div class="uppercase flex-grow text-[1rem] md:text-[4rem] leading-[0.7]">
-                    <p class="md:mb-12 mb-3">instagram</p>
-                    <a class="border-b-2 border-white" href="mailto:me@parthsuratwala.com">@lets_get_startedd</a>
-                </div>
-                <div class="ml-auto">
-                    <svg class="md:w-[45px] w-[11px] aspect-square" viewBox="0 0 45 45" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0.0827637 8.74224e-08H44.0828V2H0.0827637V8.74224e-08Z" fill="white" />
-                        <path d="M0 43.1956L42.1955 1.0001L43.6097 2.41431L1.41421 44.6098L0 43.1956Z" fill="white" />
-                        <path d="M44.0828 8.74224e-08L44.0828 45H42.0828L42.0828 0L44.0828 8.74224e-08Z" fill="white" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <div class="px-[0.62rem] py-[1.5rem] border-white border-b-[0.0625rem] md:px-[4.19rem] md:py-[3.44rem]">
-            <p class="italic text-sm md:text-4xl font-thin leading-[0.7] capitalize text-center my-[14rem]">your vision,
-                my versatility</p>
-        </div>
+
         <script>
             const aboutsDiv = document.querySelectorAll('.about');
             aboutsDiv.forEach((divA) => {
@@ -361,10 +313,10 @@
             });
 
         </script>
-        <svg width="30" id="arrow" class="curso" style="display:hidden;position:fixed;mix-blend-mode:difference;" viewBox="0 0 24 39" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+        <svg width="30" id="arrow" class="curso" style="display:hidden;position:fixed;mix-blend-mode:difference;"
+            viewBox="0 0 24 39" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M13.5 2C13.5 1.17157 12.8284 0.5 12 0.5C11.1716 0.5 10.5 1.17157 10.5 2L13.5 2ZM10.9393 38.0611C11.5251 38.6469 12.4749 38.6469 13.0607 38.0611L22.6066 28.5152C23.1924 27.9294 23.1924 26.9797 22.6066 26.3939C22.0208 25.8081 21.0711 25.8081 20.4853 26.3939L12 34.8792L3.51472 26.3939C2.92893 25.8081 1.97918 25.8081 1.3934 26.3939C0.80761 26.9797 0.80761 27.9294 1.3934 28.5152L10.9393 38.0611ZM10.5 2L10.5 37.0005L13.5 37.0005L13.5 2L10.5 2Z"
                 fill="white" />
         </svg>
-        <%- include('partials/footer.ejs') %>
+        <%- include('partials/footer.ejs', {contact:data.contact}) %>
