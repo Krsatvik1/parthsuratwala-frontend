@@ -71,13 +71,13 @@
             </div>
         </div>
         <div
-            class="border-b-[0.0625rem] max-h-0 origin-top overflow-hidden transition-all duration-1000 ease-in border-white px-[0.69rem] md:px-[1.69rem]">
+            class="border-b-[0.0625rem] edu max-h-0 origin-top overflow-hidden transition-all duration-1000 ease-in border-white px-[0.69rem] md:px-[1.69rem]">
             <% data.educations.forEach((edu,key)=>{ %>
                 %>
                 <div
-                    class="justify-between md:my-[2.5rem] my-[0.87rem] items-center gap-x-[1.65rem] md:gap-x-[3.44rem]">
+                    class="justify-between inside-edu md:my-[2.5rem] my-[0.87rem] items-center gap-x-[1.65rem] md:gap-x-[3.44rem]">
                     <div class="text-left">
-                        <h3 class="md:text-[5rem] texy-[1.247rem] font-normal leading-[0.8]">
+                        <h3 class="md:text-[5rem] text-[1.247rem] font-normal leading-[0.8]">
                             <%= edu.attributes.details.name %>
                         </h3>
                         <p
@@ -107,11 +107,11 @@
             </div>
         </div>
         <div
-            class="border-b-[0.0625rem] max-h-0 origin-top overflow-hidden transition-all duration-1000 ease-in border-white px-[0.69rem] md:px-[1.69rem]">
+            class="border-b-[0.0625rem] hard max-h-0 origin-top overflow-hidden transition-all duration-1000 ease-in border-white px-[0.69rem] md:px-[1.69rem]">
             <% data.hard_skills.forEach((skill,key)=>{ %>
                 %>
                 <div
-                    class="justify-between md:my-[2.5rem] my-[0.87rem] items-center gap-x-[1.65rem] md:gap-x-[3.44rem]">
+                    class="justify-between inside-hard md:my-[2.5rem] my-[0.87rem] items-center gap-x-[1.65rem] md:gap-x-[3.44rem]">
                     <div class="text-left">
                         <h3 class="md:text-[5rem] texy-[1.247rem] font-normal leading-[0.8]">
                             <%= skill.attributes.skill_name.name %>
@@ -134,11 +134,11 @@
             </div>
         </div>
         <div
-            class="border-b-[0.0625rem] max-h-0 origin-top overflow-hidden transition-all duration-1000 ease-in border-white px-[0.69rem] md:px-[1.69rem]">
+            class="border-b-[0.0625rem] soft max-h-0 origin-top overflow-hidden transition-all duration-1000 ease-in border-white px-[0.69rem] md:px-[1.69rem]">
             <% data.soft_skills.forEach((skill,key)=>{ %>
                 %>
                 <div
-                    class="justify-between md:my-[2.5rem] my-[0.87rem] items-center gap-x-[1.65rem] md:gap-x-[3.44rem]">
+                    class="justify-between inside-soft md:my-[2.5rem] my-[0.87rem] items-center gap-x-[1.65rem] md:gap-x-[3.44rem]">
                     <div class="text-left">
                         <h3 class="md:text-[5rem] texy-[1.247rem] font-normal leading-[0.8]">
                             <%= skill.attributes.skill_name.name %>
@@ -161,9 +161,9 @@
             </div>
         </div>
         <div
-            class="border-b-[0.0625rem] max-h-0 origin-top overflow-hidden transition-all duration-1000 ease-in border-white px-[0.69rem] md:px-[1.69rem]">
+            class="border-b-[0.0625rem] ware max-h-0 origin-top overflow-hidden transition-all duration-1000 ease-in border-white px-[0.69rem] md:px-[1.69rem]">
             <% data.software.forEach((soft,key)=>{ %>
-                <div class="flex justify-between my-9">
+                <div class="flex inside-ware justify-between my-9">
                     <div class="h-fit">
                         <img class="h-[3.39488rem] md:h-[7.6875rem]"
                             src="<%= data.strapiURL + data.software[key].attributes.software_details.icon.data.attributes.url %>"
@@ -188,127 +188,206 @@
         <div class=" border-white border-b-[0.0625rem] py-[1.5rem] px-[0.69rem] md:px-[1.69rem] md:py-[3.44rem]">
             <h2 class="text-base md:text-2xl font-thin italic capitalize leading-[0.7]">Work Experience</h2>
             <% data.workexp.forEach((exp,key)=>{ %>
-            <div class="mt-[2.38rem] md:mt-[10.5rem] md:grid md:grid-cols-6">
-                <div class="md:col-span-4">
-                    <h3 class="uppercase leading-[0.7] md:mb-[4.37rem] mb-[1.8rem] text-[1.89rem] md:text-[6.5625rem]">
-                        <%= exp.attributes.employeer_name %>    
-                    </h3>
-                    <div class="text-xs md:text-[1.5rem] font-thin mb-8 italic grid grid-cols-2">
-                        <p><%= exp.attributes.designation %></p>
-                        <p><%= exp.attributes.joining_month_year %> - <%= exp.attributes.leaving_month_year %></p>
+                <div class="mt-[2.38rem] md:mt-[10.5rem] md:grid md:grid-cols-6">
+                    <div class="md:col-span-4">
+                        <h3
+                            class="uppercase leading-[0.7] md:mb-[4.37rem] mb-[1.8rem] text-[1.89rem] md:text-[6.5625rem]">
+                            <%= exp.attributes.employeer_name %>
+                        </h3>
+                        <div class="text-xs md:text-[1.5rem] font-thin mb-8 italic grid grid-cols-2">
+                            <p>
+                                <%= exp.attributes.designation %>
+                            </p>
+                            <p>
+                                <%= exp.attributes.joining_month_year %> - <%= exp.attributes.leaving_month_year %>
+                            </p>
+                        </div>
                     </div>
+                    <p class="text-[0.875rem] font-thin md:font-light md:text-2xl md:col-span-2">
+                        <%= exp.attributes.description %>
+                    </p>
                 </div>
-                <p class="text-[0.875rem] font-thin md:font-light md:text-2xl md:col-span-2">
-                    <%= exp.attributes.description %>
-                </p>
-            </div>
-            <% }) %>
+                <% }) %>
         </div>
         <div class="px-[0.69rem] md:px-[1.69rem] py-[1.5rem] border-white border-b-[0.0625rem] md:py-[3.44rem]">
             <h2 class="text-base md:text-2xl text-right font-thin italic capitalize leading-[0.7]">My Work</h2>
             <div class="md:mt-[9.81rem] mt-[1.94rem] md:columns-2 md:gap-[2.25rem] columns-1">
-                <% data.works.forEach((work,key)=>{  if(key%2==0){%>
-                <a href="/works/<%= work.attributes.slug %>"
-                    class="grid text-white border-[1.054px] border-white px-[0.83rem] grid-cols-8 md:grid-cols-10 py-[0.7rem] 
+                <% data.works.forEach((work,key)=>{ if(key%2==0){%>
+                    <a href="/works/<%= work.attributes.slug %>" class="grid text-white border-[1.054px] border-white px-[0.83rem] grid-cols-8 md:grid-cols-10 py-[0.7rem] 
                     relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:w-full after:h-full after:z-10 after:mix-blend-difference overflow-hidden after:transition-all-09uy after:duration-300 after:ease-in after:border-0 after:border-white hover:after:border-[10rem]
                     
                     md:my-[2.25rem] my-[1.25rem]">
-                    <div class="col-span-7 md:col-span-9 md:h-[46.1875rem]  h-[20rem] 
-                    overflow-hidden z-20 relative">
-                        <img class=" object-cover object-center min-h-full min-w-full" src="<%= data.strapiURL + work.attributes.display_image.data.attributes.url %>" alt="<%= work.attributes.display_image.data.attributes.alternativeText %>">
-                    </div>
-                    <div class="justify-self-end col-span-1 space-y-2">
-                        <% work.attributes.skill_used.forEach((skill)=>{ %>
-                        <div class="px-[0.63rem] py-[0.93rem] md:text-base text-[0.53044rem] border-[0.53px] rounded-[1.92288rem] border-white leading-[1]"
-                            style="writing-mode: vertical-lr;">
-                            <%= skill.title %>
-                        </div>
-                        <% }) %>
-                    </div>
-                    <div class="col-span-7 md:col-span-9 leading-none pt-2">
-                        <h4 class="md:text-[3.625rem] text-[1.92rem] uppercase"><%= work.attributes.project_name%></h4>
-                    </div>
-                    <div
-                        class="justify-self-end pt-2 pl-2 self-end md:text-[2.5rem] text-[1.326rem] italic font-thin leading-none">
-                        <p><%= work.attributes.month_creation%></p>
-                        <p><%= work.attributes.year_creation%></p>
-                    </div>
-                </a>
-                <% }}) %>
-                <div class="md:flex h-32 hidden items-end mt-[2.25rem]">
-                    <a class="flex" href="/works">
-                        <h4 class="uppercase border-b-2 border-white text-[4rem] leading-none">VIEW MORE</h4>
-                        <div class="ml-6 mt-2"><svg width="46" height="47" viewBox="0 0 46 47" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.0863632 9.13079e-08H46V2.08889H0.0863632V9.13079e-08Z" fill="white" />
-                                <path d="M0 45.1154L44.0306 1.04455L45.5063 2.52161L1.47572 46.5924L0 45.1154Z"
-                                    fill="white" />
-                                <path d="M46 9.13079e-08L46 47H43.913L43.913 0L46 9.13079e-08Z" fill="white" />
-                            </svg>
-                        </div>
-                    </a>
-                </div>
-                <div class="h-52 hidden md:block"></div>
-                <% data.works.forEach((work,key)=>{  if(key%2!=0){%>
-                    <a href="/works/<%= work.attributes.slug %>"
-                        class="grid text-white border-[1.054px] border-white px-[0.83rem] grid-cols-8 md:grid-cols-10 py-[0.7rem] relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:w-full after:h-full after:z-10 after:mix-blend-difference overflow-hidden after:transition-all-09uy after:duration-300 after:ease-in after:border-0 after:border-white hover:after:border-[10rem] md:my-[2.25rem] my-[1.25rem]">
                         <div class="col-span-7 md:col-span-9 md:h-[46.1875rem]  h-[20rem] 
-                        overflow-hidden z-20 relative">
-                            <img class=" object-cover object-center min-h-full min-w-full" src="<%= data.strapiURL + work.attributes.display_image.data.attributes.url %>" alt="<%= work.attributes.display_image.data.attributes.alternativeText %>">
+                    overflow-hidden z-20 relative">
+                            <img class=" object-cover object-center min-h-full min-w-full"
+                                src="<%= data.strapiURL + work.attributes.display_image.data.attributes.url %>"
+                                alt="<%= work.attributes.display_image.data.attributes.alternativeText %>">
                         </div>
                         <div class="justify-self-end col-span-1 space-y-2">
                             <% work.attributes.skill_used.forEach((skill)=>{ %>
-                            <div class="px-[0.63rem] py-[0.93rem] md:text-base text-[0.53044rem] border-[0.53px] rounded-[1.92288rem] border-white leading-[1]"
-                                style="writing-mode: vertical-lr;">
-                                <%= skill.title %>
-                            </div>
-                            <% }) %>
+                                <div class="px-[0.63rem] py-[0.93rem] md:text-base text-[0.53044rem] border-[0.53px] rounded-[1.92288rem] border-white leading-[1]"
+                                    style="writing-mode: vertical-lr;">
+                                    <%= skill.title %>
+                                </div>
+                                <% }) %>
                         </div>
                         <div class="col-span-7 md:col-span-9 leading-none pt-2">
-                            <h4 class="md:text-[3.625rem] text-[1.92rem] uppercase"><%= work.attributes.project_name%></h4>
+                            <h4 class="md:text-[3.625rem] text-[1.92rem] uppercase">
+                                <%= work.attributes.project_name%>
+                            </h4>
                         </div>
                         <div
                             class="justify-self-end pt-2 pl-2 self-end md:text-[2.5rem] text-[1.326rem] italic font-thin leading-none">
-                            <p><%= work.attributes.month_creation%></p>
-                            <p><%= work.attributes.year_creation%></p>
+                            <p>
+                                <%= work.attributes.month_creation%>
+                            </p>
+                            <p>
+                                <%= work.attributes.year_creation%>
+                            </p>
                         </div>
                     </a>
                     <% }}) %>
-
-                <div class="flex h-[4.5rem] md:hidden items-end mt-[2.25rem]">
-                    <a class="flex">
-                        <h4 class="uppercase border-b-2 border-white text-[2.3rem] md:text-[4rem] leading-none">VIEW
-                            MORE</h4>
-                        <div class="ml-4 mt-2"><svg width="27" height="27" viewBox="0 0 27 27" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.665814 5.19266e-08H26.7768V1.18795H0.665814V5.19266e-08Z" fill="white" />
-                                <path
-                                    d="M0.616699 25.657L25.6568 0.59403L26.496 1.43404L1.45594 26.497L0.616699 25.657Z"
-                                    fill="white" />
-                                <path d="M26.7768 5.19266e-08L26.7768 26.7288H25.5899L25.5899 0L26.7768 5.19266e-08Z"
-                                    fill="white" />
-                            </svg>
-
+                        <div class="md:flex h-32 hidden items-end mt-[2.25rem]">
+                            <a class="flex" href="/works">
+                                <h4 class="uppercase border-b-2 border-white text-[4rem] leading-none">VIEW MORE</h4>
+                                <div class="ml-6 mt-2"><svg width="46" height="47" viewBox="0 0 46 47" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.0863632 9.13079e-08H46V2.08889H0.0863632V9.13079e-08Z"
+                                            fill="white" />
+                                        <path d="M0 45.1154L44.0306 1.04455L45.5063 2.52161L1.47572 46.5924L0 45.1154Z"
+                                            fill="white" />
+                                        <path d="M46 9.13079e-08L46 47H43.913L43.913 0L46 9.13079e-08Z" fill="white" />
+                                    </svg>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
+                        <div class="h-52 hidden md:block"></div>
+                        <% data.works.forEach((work,key)=>{ if(key%2!=0){%>
+                            <a href="/works/<%= work.attributes.slug %>"
+                                class="grid text-white border-[1.054px] border-white px-[0.83rem] grid-cols-8 md:grid-cols-10 py-[0.7rem] relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:w-full after:h-full after:z-10 after:mix-blend-difference overflow-hidden after:transition-all-09uy after:duration-300 after:ease-in after:border-0 after:border-white hover:after:border-[10rem] md:my-[2.25rem] my-[1.25rem]">
+                                <div class="col-span-7 md:col-span-9 md:h-[46.1875rem]  h-[20rem] 
+                        overflow-hidden z-20 relative">
+                                    <img class=" object-cover object-center min-h-full min-w-full"
+                                        src="<%= data.strapiURL + work.attributes.display_image.data.attributes.url %>"
+                                        alt="<%= work.attributes.display_image.data.attributes.alternativeText %>">
+                                </div>
+                                <div class="justify-self-end col-span-1 space-y-2">
+                                    <% work.attributes.skill_used.forEach((skill)=>{ %>
+                                        <div class="px-[0.63rem] py-[0.93rem] md:text-base text-[0.53044rem] border-[0.53px] rounded-[1.92288rem] border-white leading-[1]"
+                                            style="writing-mode: vertical-lr;">
+                                            <%= skill.title %>
+                                        </div>
+                                        <% }) %>
+                                </div>
+                                <div class="col-span-7 md:col-span-9 leading-none pt-2">
+                                    <h4 class="md:text-[3.625rem] text-[1.92rem] uppercase">
+                                        <%= work.attributes.project_name%>
+                                    </h4>
+                                </div>
+                                <div
+                                    class="justify-self-end pt-2 pl-2 self-end md:text-[2.5rem] text-[1.326rem] italic font-thin leading-none">
+                                    <p>
+                                        <%= work.attributes.month_creation%>
+                                    </p>
+                                    <p>
+                                        <%= work.attributes.year_creation%>
+                                    </p>
+                                </div>
+                            </a>
+                            <% }}) %>
+
+                                <div class="flex h-[4.5rem] md:hidden items-end mt-[2.25rem]">
+                                    <a class="flex">
+                                        <h4
+                                            class="uppercase border-b-2 border-white text-[2.3rem] md:text-[4rem] leading-none">
+                                            VIEW
+                                            MORE</h4>
+                                        <div class="ml-4 mt-2"><svg width="27" height="27" viewBox="0 0 27 27"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M0.665814 5.19266e-08H26.7768V1.18795H0.665814V5.19266e-08Z"
+                                                    fill="white" />
+                                                <path
+                                                    d="M0.616699 25.657L25.6568 0.59403L26.496 1.43404L1.45594 26.497L0.616699 25.657Z"
+                                                    fill="white" />
+                                                <path
+                                                    d="M26.7768 5.19266e-08L26.7768 26.7288H25.5899L25.5899 0L26.7768 5.19266e-08Z"
+                                                    fill="white" />
+                                            </svg>
+
+                                        </div>
+                                    </a>
+                                </div>
             </div>
         </div>
 
         <script>
+
+            function calculateHeight(varName) {
+                const elements = document.querySelectorAll(varName);
+                let totalHeight = 0;
+                let prevBottom = 0;
+                elements.forEach((element) => {
+                    const style = window.getComputedStyle(element);
+                    const marginTop = parseFloat(style.marginTop);
+                    const marginBottom = parseFloat(style.marginBottom);
+                    const top = element.offsetTop;
+                    const bottom = top + element.offsetHeight + marginTop + marginBottom;
+                    if (top >= prevBottom) {
+                        totalHeight += marginTop;
+                    } else {
+                        totalHeight += Math.max(marginTop, prevBottom - top);
+                    }
+                    totalHeight += element.offsetHeight;
+                    prevBottom = bottom;
+                });
+                const style = window.getComputedStyle(elements[0]);
+                const marginBottom = parseFloat(style.marginBottom);
+                return totalHeight + marginBottom;
+            }
+
+            const eduHeight = calculateHeight('.inside-edu');
+            const hardHeight = calculateHeight('.inside-hard');
+            const softHeight = calculateHeight('.inside-soft');
+            const wareHeight = calculateHeight('.inside-ware');
+            console.log(eduHeight, hardHeight, softHeight, wareHeight);
             const aboutsDiv = document.querySelectorAll('.about');
             aboutsDiv.forEach((divA) => {
-                divA.addEventListener('click', () => {
+                divA.addEventListener('click', (e) => {
+                    let flag = e.target.nextElementSibling.style.maxHeight == '';
                     aboutsDiv.forEach((div) => {
-                        if (div != divA) {
+                        div.querySelector('svg').classList.remove('rotate-180');
+                        if (div.nextElementSibling.classList.contains('edu')) {
                             const nextDiv = div.nextElementSibling;
-                            nextDiv.classList.remove('max-h-[100rem]');
+                            nextDiv.style.maxHeight = '';
+                        } else if (div.nextElementSibling.classList.contains('hard')) {
+                            const nextDiv = div.nextElementSibling;
+                            nextDiv.style.maxHeight = '';
+                        } else if (div.nextElementSibling.classList.contains('soft')) {
+                            const nextDiv = div.nextElementSibling;
+                            nextDiv.style.maxHeight = '';
+                        } else if (div.nextElementSibling.classList.contains('ware')) {
+                            const nextDiv = div.nextElementSibling;
+                            nextDiv.style.maxHeight = '';
                         }
                     });
-                    divA.querySelector('svg').classList.toggle('rotate-180');
-                    const nextDiv = divA.nextElementSibling;
-                    console.log(nextDiv);
-                    nextDiv.classList.toggle('max-h-[100rem]');
+                    if (flag) {
+                        divA.querySelector('svg').classList.toggle('rotate-180');
+
+                        if (divA.nextElementSibling.classList.contains('edu')) {
+                            const nextDiv = divA.nextElementSibling;
+                            nextDiv.style.maxHeight = eduHeight + 'px';
+                        } else if (divA.nextElementSibling.classList.contains('hard')) {
+                            const nextDiv = divA.nextElementSibling;
+                            nextDiv.style.maxHeight = hardHeight + 'px';
+                        } else if (divA.nextElementSibling.classList.contains('soft')) {
+                            const nextDiv = divA.nextElementSibling;
+                            nextDiv.style.maxHeight = softHeight + 'px';
+                        } else if (divA.nextElementSibling.classList.contains('ware')) {
+                            const nextDiv = divA.nextElementSibling;
+                            nextDiv.style.maxHeight = wareHeight + 'px';
+                        }
+                    }
+
                 });
             });
 

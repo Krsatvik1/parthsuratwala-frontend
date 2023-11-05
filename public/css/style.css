@@ -1210,6 +1210,10 @@ video {
   line-height: 1rem;
 }
 
+.text-\[1\.247rem\] {
+  font-size: 1.247rem;
+}
+
 .font-light {
   font-weight: 300;
 }
