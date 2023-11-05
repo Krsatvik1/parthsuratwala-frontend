@@ -554,6 +554,14 @@ video {
   order: 2;
 }
 
+.-order-1 {
+  order: -1;
+}
+
+.-order-2 {
+  order: -2;
+}
+
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
@@ -862,6 +870,18 @@ video {
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
+.space-y-\[\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc( * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc( * var(--tw-space-y-reverse));
+}
+
+.space-y-\[0\.31rem\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.31rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.31rem * var(--tw-space-y-reverse));
+}
+
 .self-end {
   align-self: flex-end;
 }
@@ -1024,6 +1044,26 @@ video {
 .py-\[1\.94rem\] {
   padding-top: 1.94rem;
   padding-bottom: 1.94rem;
+}
+
+.px-\[\] {
+  padding-left: ;
+  padding-right: ;
+}
+
+.px-\[0\.7\] {
+  padding-left: 0.7;
+  padding-right: 0.7;
+}
+
+.px-\[0\.72rem\] {
+  padding-left: 0.72rem;
+  padding-right: 0.72rem;
+}
+
+.py-\[2\.8rem\] {
+  padding-top: 2.8rem;
+  padding-bottom: 2.8rem;
 }
 
 .pb-0 {
@@ -1567,6 +1607,10 @@ video {
 
   .md\:p-\[2rem\] {
     padding: 2rem;
+  }
+
+  .md\:p-\[2\.88rem\] {
+    padding: 2.88rem;
   }
 
   .md\:px-\[1\.69rem\] {
