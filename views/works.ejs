@@ -11,7 +11,7 @@ class="lg:text-clamp-lg md:text-clamp-md xl:text-clamp-xl 2xl:text-clamp-2xl sm:
 class="lg:text-clamp-lg md:text-clamp-md xl:text-clamp-xl 2xl:text-clamp-2xl sm:text-clamp-sm text-clamp-xs uppercase leading-[0.5] outline-[0.0625rem]  outline-white outline grid md:grid-cols-2 grid-cols-1">
 <% data.works.forEach((work,key)=>{ %>
     <a href="works/<%= work.attributes.slug %>" class=" flex flex-col outline-[0.0625rem]  outline-white outline mb-[1.25rem] md:mb-0 border-white
-        relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:w-full after:h-full after:z-10 after:mix-blend-difference overflow-hidden after:transition-all-09uy after:duration-300 after:ease-in after:border-0 after:border-white hover:after:border-[25rem]
+        hover:cursor-pointer after:mix-blend-difference group after:absolute after:content-[''] after:top-0 after:bottom-0 after:w-full after:h-[200%] relative overflow-hidden hover:after:translate-y-0 after:bg-[linear-gradient(0deg,#000_50%,#fff_50%)] after:transition-all after:duration-300 after:ease-in after:translate-y-1/2 from-white to-black transition-all duration-300 ease-in
         ">
         <div class="md:mx-[1.63rem] md:mt-[1.37rem] z-20 relative flex-grow">
             <img src="<%= data.strapiURL + work.attributes.display_image.data.attributes.url %>" alt="<%= work.attributes.display_image.data.attributes.alternativeText %>" class="w-full h-full object-cover">
@@ -21,8 +21,8 @@ class="lg:text-clamp-lg md:text-clamp-md xl:text-clamp-xl 2xl:text-clamp-2xl sm:
                 <h2 class="md:text-[3.625rem] text-[1.8rem] font-normal uppercase leading-[0.7] mb-[1rem]"><%= work.attributes.project_name%></h2>
                 <p class="text-[0.687rem] md:text-[1rem] capitalize font-light leading-[0.7] "><% work.attributes.software_used.forEach((skill,key1)=>{ %><% if (key1>0) {%> // <% } %><%= skill.title %><% }) %></p>
             </div>
-            <div class="text-[1.5rem] md:text-[2.5rem] leading-[0.9] italic font-thin">
-                <div><%= work.attributes.month_creation%></div>
+            <div class="text-[1.5rem] md:text-[2.5rem] text-right leading-[0.9] italic font-thin">
+                <div><% if (work.attributes.month_creation<10){ %>0<% } %><%= work.attributes.month_creation%></div>
                 <div><%= work.attributes.year_creation%></div>
             </div>
         </div>

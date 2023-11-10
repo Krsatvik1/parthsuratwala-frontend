@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media only screen and (min-width: 768px) {
+    .skilltab{
+        writing-mode: vertical-lr;
+    }
+   
+}

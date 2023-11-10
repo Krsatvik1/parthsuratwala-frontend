@@ -11,11 +11,14 @@ uppercase leading-[0.5]
 outline-[0.0625rem] outline-white outline py-[2.8rem] px-[0.72rem] md:p-[2.88rem]
 grid md:grid-cols-2 grid-cols-5 gap-[1.44rem]">
         <% data.work.project_images.data.forEach((img,key)=>{ %>
-            <div class="flex-grow col-span-5 md:col-span-1">
+            <div class="flex-grow col-span-5 <% if (data.work.single_image_grid){ %> md:col-span-2<% }else{ %> md:col-span-1 <% } %>">
                 <img src="<%= data.strapiURL + img.attributes.url %>" alt="work1" class="w-full h-full object-cover">
             </div>
         <% }) %>
-            <div class="md:mt-[2.1rem] col-span-3 md:col-span-1 -order-2 flex flex-col justify-between">
+        <% if (data.work.project_images.data.length==1 && !data.work.single_image_grid) { %>
+            <div class="flex-grow hidden md:block md:col-span-1"></div>
+        <% } %>
+            <div class="md:mt-[2.1rem] col-span-3 md:col-span-1 -order-2 md:order-none flex flex-col justify-between">
                 <p class="md:text-[1.5rem] leading-none normal-case font-normal">
                     <%= data.work.project_description  %>
                 </p>
@@ -23,17 +26,14 @@ grid md:grid-cols-2 grid-cols-5 gap-[1.44rem]">
                     <% data.work.software_used.forEach((skill,key1)=>{ %><% if (key1>0) {%> // <% } %><%= skill.title %><% }) %>
                 </p>
             </div>
-            <div class="-order-1 md:mt-[2.1rem] flex flex-col items-end gap-y-[6.25rem] col-span-2 md:col-span-1">
-                <div class="text-[1.5rem] md:text-[2.5rem] leading-[0.9] italic font-thin">
-                    <div><%= data.work.month_creation%></div>
+            <div class="-order-1 md:order-none md:mt-[2.1rem] flex flex-col items-end gap-y-[6.25rem] col-span-2 md:col-span-1">
+                <div class="text-[1.5rem] md:text-[2.5rem] leading-[0.9] text-right italic font-thin">
+                    <div><% if (data.work.month_creation<10){ %>0<% } %><%= data.work.month_creation %></div>
                 <div><%= data.work.year_creation%></div>
                 </div>
-                <div class="justify-self-end text-center space-y-[0.31rem] md:flex gap-[1.19rem]">
+                <div class="justify-self-end text-center space-y-[0.31rem] md:space-y-0 md:flex gap-[1.19rem]">
                     <% data.work.skill_used.forEach((skill,key1)=>{ %>
-                    <div class="px-[0.63rem] py-[0.93rem] md:text-base text-[0.53044rem] border-[0.53px] rounded-[1.92288rem] border-white leading-[1]"
-                        style="@media screen and (min-width: 768px) {
-                            writing-mode: vertical-lr;
-                        }">
+                    <div class="px-[0.63rem] py-[0.93rem] md:text-base text-[0.53044rem] border-[0.53px] rounded-[1.92288rem] border-white leading-[1] skilltab min-w-[7rem] md:min-w-0 md:min-h-[11rem]">
                         <%= skill.title %>
                     </div>
                     <% }) %>

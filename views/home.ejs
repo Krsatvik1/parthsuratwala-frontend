@@ -33,7 +33,7 @@
             </div>
             <div
                 class="flex p-[0.42rem] md:p-[2rem] pt-0 border-b-[0.0625rem] border-white justify-between mt-[0.7rem] md:mt-[0.4rem]">
-                <h1 class="ml-[5%]">
+                <h1 class="ml-[4.5%] md:ml-[4%]">
                     <%= data.homeData.header_line_4_A %>
                 </h1>
             </div>
@@ -48,7 +48,7 @@
             </div>
             <div class="grid grid-cols-5 text-[0.7rem] md:text-[1.25rem] leading-[1.2] font-normal">
                 <div class="col-span-3 md:col-span-3">
-                    <p class="md:max-w-[29rem] pb-[31.25rem] ">
+                    <p class="md:max-w-[29rem] pb-[25rem] md:pb-[31.25rem] ">
                         <%= data.homeData.about_para %>
                     </p>
                     <h2
@@ -58,7 +58,8 @@
             </div>
         </div>
         <div
-            class="border-b-[0.0625rem] about hover:cursor-pointer after:mix-blend-difference group after:absolute after:content-[''] after:top-0 after:bottom-0 after:w-full after:h-[200%] relative overflow-hidden hover:after:translate-y-0 after:bg-[linear-gradient(0deg,#000_50%,#fff_50%)] after:transition-all after:duration-300 after:ease-in after:translate-y-1/2 from-white to-black transition-all duration-300 ease-in border-white md:py-[2.5rem] py-[0.87rem] flex arrowmouse">
+            class="border-b-[0.0625rem] about 
+            hover:cursor-pointer after:mix-blend-difference group after:absolute after:content-[''] after:top-0 after:bottom-0 after:w-full after:h-[200%] relative overflow-hidden hover:after:translate-y-0 after:bg-[linear-gradient(0deg,#000_50%,#fff_50%)] after:transition-all after:duration-300 after:ease-in after:translate-y-1/2 from-white to-black transition-all duration-300 ease-in border-white md:py-[2.5rem] py-[0.87rem] flex arrowmouse">
             <div
                 class="leading-[0.7] pl-[0.69rem] md:pl-[1.69rem] text-[0.935rem] md:text-[3.75rem] font-thin uppercase">
                 EDUCATION</div>
@@ -75,9 +76,9 @@
             <% data.educations.forEach((edu,key)=>{ %>
                 %>
                 <div
-                    class="justify-between inside-edu md:my-[2.5rem] my-[0.87rem] items-center gap-x-[1.65rem] md:gap-x-[3.44rem]">
+                    class="justify-between inside-edu md:my-[4rem] my-[2.5rem] items-center gap-x-[1.65rem] md:gap-x-[3.44rem]">
                     <div class="text-left">
-                        <h3 class="md:text-[5rem] text-[1.247rem] font-normal leading-[0.8]">
+                        <h3 class="md:text-[5rem] text-[1.247rem] font-normal leading-[1]">
                             <%= edu.attributes.details.name %>
                         </h3>
                         <p
@@ -191,7 +192,7 @@
                 <div class="mt-[2.38rem] md:mt-[10.5rem] md:grid md:grid-cols-6">
                     <div class="md:col-span-4">
                         <h3
-                            class="uppercase leading-[0.7] md:mb-[4.37rem] mb-[1.8rem] text-[1.89rem] md:text-[6.5625rem]">
+                            class="uppercase leading-[1] md:mb-[4.37rem] mb-[1.8rem] text-[1.89rem] md:text-[6.5625rem]">
                             <%= exp.attributes.employeer_name %>
                         </h3>
                         <div class="text-xs md:text-[1.5rem] font-thin mb-8 italic grid grid-cols-2">
@@ -212,12 +213,12 @@
         <div class="px-[0.69rem] md:px-[1.69rem] py-[1.5rem] border-white border-b-[0.0625rem] md:py-[3.44rem]">
             <h2 class="text-base md:text-2xl text-right font-thin italic capitalize leading-[0.7]">My Work</h2>
             <div class="md:mt-[9.81rem] mt-[1.94rem] md:columns-2 md:gap-[2.25rem] columns-1">
-                <% data.works.forEach((work,key)=>{ if(key%2==0){%>
+                <% data.works.forEach((work,key)=>{ if(key%2!=0){%>
                     <a href="/works/<%= work.attributes.slug %>" class="grid text-white border-[1.054px] border-white px-[0.83rem] grid-cols-8 md:grid-cols-10 py-[0.7rem] 
-                    relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:w-full after:h-full after:z-10 after:mix-blend-difference overflow-hidden after:transition-all-09uy after:duration-300 after:ease-in after:border-0 after:border-white hover:after:border-[10rem]
+                        hover:cursor-pointer after:mix-blend-difference group after:absolute after:content-[''] after:top-0 after:bottom-0 after:w-full after:h-[200%] relative overflow-hidden hover:after:translate-y-0 after:bg-[linear-gradient(0deg,#000_50%,#fff_50%)] after:transition-all after:duration-300 after:ease-in after:translate-y-1/2 from-white to-black transition-all duration-300 ease-in
                     
                     md:my-[2.25rem] my-[1.25rem]">
-                        <div class="col-span-7 md:col-span-9 md:h-[46.1875rem]  h-[20rem] 
+                        <div class="col-span-7 md:col-span-9 mr-2 md:mr-4 md:h-[46.1875rem]  h-[20rem] 
                     overflow-hidden z-20 relative">
                             <img class=" object-cover object-center min-h-full min-w-full"
                                 src="<%= data.strapiURL + work.attributes.display_image.data.attributes.url %>"
@@ -225,7 +226,7 @@
                         </div>
                         <div class="justify-self-end col-span-1 space-y-2">
                             <% work.attributes.skill_used.forEach((skill)=>{ %>
-                                <div class="px-[0.63rem] py-[0.93rem] md:text-base text-[0.53044rem] border-[0.53px] rounded-[1.92288rem] border-white leading-[1]"
+                                <div class="px-[0.63rem] text-center min-h-[7rem] md:min-h-[11rem] py-[0.93rem] md:text-base text-[0.53044rem] border-[0.53px] rounded-[1.92288rem] border-white leading-[1]"
                                     style="writing-mode: vertical-lr;">
                                     <%= skill.title %>
                                 </div>
@@ -238,8 +239,8 @@
                         </div>
                         <div
                             class="justify-self-end pt-2 pl-2 self-end md:text-[2.5rem] text-[1.326rem] italic font-thin leading-none">
-                            <p>
-                                <%= work.attributes.month_creation%>
+                            <p class="text-right">
+                                <% if (work.attributes.month_creation < 10){ %>0<% } %><%= work.attributes.month_creation %>
                             </p>
                             <p>
                                 <%= work.attributes.year_creation%>
@@ -262,10 +263,11 @@
                             </a>
                         </div>
                         <div class="h-52 hidden md:block"></div>
-                        <% data.works.forEach((work,key)=>{ if(key%2!=0){%>
+                        <% data.works.forEach((work,key)=>{ if(key%2==0){%>
                             <a href="/works/<%= work.attributes.slug %>"
-                                class="grid text-white border-[1.054px] border-white px-[0.83rem] grid-cols-8 md:grid-cols-10 py-[0.7rem] relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:w-full after:h-full after:z-10 after:mix-blend-difference overflow-hidden after:transition-all-09uy after:duration-300 after:ease-in after:border-0 after:border-white hover:after:border-[10rem] md:my-[2.25rem] my-[1.25rem]">
-                                <div class="col-span-7 md:col-span-9 md:h-[46.1875rem]  h-[20rem] 
+                                class="grid text-white border-[1.054px] border-white px-[0.83rem] grid-cols-8 md:grid-cols-10 py-[0.7rem] hover:cursor-pointer after:mix-blend-difference group after:absolute after:content-[''] after:top-0 after:bottom-0 after:w-full after:h-[200%] relative overflow-hidden hover:after:translate-y-0 after:bg-[linear-gradient(0deg,#000_50%,#fff_50%)] after:transition-all after:duration-300 after:ease-in after:translate-y-1/2 from-white to-black transition-all duration-300 ease-in
+                                md:my-[2.25rem] my-[1.25rem]">
+                                <div class="col-span-7 md:col-span-9 mr-2 md:mr-4 md:h-[46.1875rem]  h-[20rem] 
                         overflow-hidden z-20 relative">
                                     <img class=" object-cover object-center min-h-full min-w-full"
                                         src="<%= data.strapiURL + work.attributes.display_image.data.attributes.url %>"
@@ -273,7 +275,7 @@
                                 </div>
                                 <div class="justify-self-end col-span-1 space-y-2">
                                     <% work.attributes.skill_used.forEach((skill)=>{ %>
-                                        <div class="px-[0.63rem] py-[0.93rem] md:text-base text-[0.53044rem] border-[0.53px] rounded-[1.92288rem] border-white leading-[1]"
+                                        <div class="px-[0.63rem] py-[0.93rem] text-center min-h-[7rem] md:min-h-[11rem] md:text-base text-[0.53044rem] border-[0.53px] rounded-[1.92288rem] border-white leading-[1]"
                                             style="writing-mode: vertical-lr;">
                                             <%= skill.title %>
                                         </div>
@@ -285,9 +287,9 @@
                                     </h4>
                                 </div>
                                 <div
-                                    class="justify-self-end pt-2 pl-2 self-end md:text-[2.5rem] text-[1.326rem] italic font-thin leading-none">
+                                    class="justify-self-end pt-2 pl-2 self-end md:text-[2.5rem] text-[1.326rem] italic font-thin leading-none text-right">
                                     <p>
-                                        <%= work.attributes.month_creation%>
+                                        <% if (work.attributes.month_creation < 10){ %>0<% } %><%= work.attributes.month_creation%>
                                     </p>
                                     <p>
                                         <%= work.attributes.year_creation%>
