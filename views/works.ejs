@@ -18,7 +18,7 @@ class="lg:text-clamp-lg md:text-clamp-md xl:text-clamp-xl 2xl:text-clamp-2xl sm:
         </div>
         <div class="mx-[0.6rem] md:mx-[1.63rem] flex justify-between pb-[1.5rem] pt-2 md:pt-4">
             <div class="  flex-grow">
-                <h2 class="md:text-[3.625rem] text-[1.8rem] font-normal uppercase leading-[0.7] mb-[1rem]"><%= work.attributes.project_name%></h2>
+                <h2 class="md:text-[3.625rem] text-[1.8rem] font-normal uppercase leading-none mb-[1rem]"><%= work.attributes.project_name%></h2>
                 <p class="text-[0.687rem] md:text-[1rem] capitalize font-light leading-[0.7] "><% work.attributes.software_used.forEach((skill,key1)=>{ %><% if (key1>0) {%> // <% } %><%= skill.title %><% }) %></p>
             </div>
             <div class="text-[1.5rem] md:text-[2.5rem] text-right leading-[0.9] italic font-thin">

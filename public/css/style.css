@@ -599,11 +599,6 @@ video {
   margin-bottom: 14rem;
 }
 
-.my-\[2rem\] {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
 .my-\[2\.5rem\] {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
@@ -770,12 +765,12 @@ video {
   width: 100%;
 }
 
-.min-w-full {
-  min-width: 100%;
-}
-
 .min-w-\[7rem\] {
   min-width: 7rem;
+}
+
+.min-w-full {
+  min-width: 100%;
 }
 
 .flex-grow {
@@ -864,15 +859,6 @@ video {
 
 .gap-y-\[6\.25rem\] {
   row-gap: 6.25rem;
-}
-
-.gap-x-\[1\.2rem\] {
-  -moz-column-gap: 1.2rem;
-       column-gap: 1.2rem;
-}
-
-.gap-y-\[1\.65rem\] {
-  row-gap: 1.65rem;
 }
 
 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
@@ -1073,8 +1059,8 @@ video {
   padding-bottom: 1.94rem;
 }
 
-.pb-\[31\.25rem\] {
-  padding-bottom: 31.25rem;
+.pb-\[25rem\] {
+  padding-bottom: 25rem;
 }
 
 .pl-2 {
@@ -1097,16 +1083,8 @@ video {
   padding-top: 0.5rem;
 }
 
-.pb-\[\] {
-  padding-bottom: ;
-}
-
-.pb-\[20rem\] {
-  padding-bottom: 20rem;
-}
-
-.pb-\[25rem\] {
-  padding-bottom: 25rem;
+.pb-10 {
+  padding-bottom: 2.5rem;
 }
 
 .text-left {
@@ -1273,8 +1251,16 @@ video {
   line-height: 1;
 }
 
+.leading-normal {
+  line-height: 1.5;
+}
+
 .leading-tight {
   line-height: 1.25;
+}
+
+.leading-snug {
+  line-height: 1.375;
 }
 
 .text-black {
@@ -1556,14 +1542,6 @@ video {
     min-height: 11rem;
   }
 
-  .md\:min-h-\[12rem\] {
-    min-height: 12rem;
-  }
-
-  .md\:min-h-\[14rem\] {
-    min-height: 14rem;
-  }
-
   .md\:w-\[45px\] {
     width: 45px;
   }
@@ -1608,10 +1586,6 @@ video {
   .md\:gap-x-\[3\.44rem\] {
     -moz-column-gap: 3.44rem;
          column-gap: 3.44rem;
-  }
-
-  .md\:gap-y-\[3\.44rem\] {
-    row-gap: 3.44rem;
   }
 
   .md\:space-y-0 > :not([hidden]) ~ :not([hidden]) {
@@ -1676,6 +1650,10 @@ video {
     padding-bottom: 3.69rem;
   }
 
+  .md\:pb-\[31\.25rem\] {
+    padding-bottom: 31.25rem;
+  }
+
   .md\:pb-\[4\.25rem\] {
     padding-bottom: 4.25rem;
   }
@@ -1690,10 +1668,6 @@ video {
 
   .md\:pt-\[3\.69rem\] {
     padding-top: 3.69rem;
-  }
-
-  .md\:pb-\[31\.25rem\] {
-    padding-bottom: 31.25rem;
   }
 
   .md\:text-2xl {
